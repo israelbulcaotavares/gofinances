@@ -3,6 +3,7 @@ import { RectButtonProps} from 'react-native-gesture-handler'
  
 import { Container, Title} from './styles'
 
+//2
 interface Props extends RectButtonProps{
     title: string;
     onPress: () => void;
