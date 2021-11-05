@@ -9,6 +9,10 @@ interface CategoryProps {
   isActive: boolean;
 }
 
+
+
+
+
 export const Container = styled(GestureHandlerRootView)`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
