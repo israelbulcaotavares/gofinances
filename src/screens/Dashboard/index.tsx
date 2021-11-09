@@ -58,13 +58,14 @@ export function Dashboard(){
     type: 'positive' | 'negative'
   ) {
 
-  const lastTransaction = new Date(Math.max.apply(
+  const lastTransaction = new Date(
+    Math.max.apply(
     Math, collection
       .filter((transaction) => transaction.type === type)
-      .map((transaction) => new Date(transaction.date).getTime())  
-    )
-  )
+      .map((transaction) => new Date(transaction.date).getTime()) )   )
 
+   
+ 
   return `${lastTransaction.getDate()} de ${lastTransaction.toLocaleString('pt-BR', { month: 'long' })}`
 }
 
@@ -219,8 +220,7 @@ export function Dashboard(){
         <TransactionList 
           data={transactions}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => <TransactionCard data = {item} />}
-        
+          renderItem={({ item }) => <TransactionCard data = {item} />} 
         />
 
         
