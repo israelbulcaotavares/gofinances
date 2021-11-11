@@ -113,7 +113,6 @@ export function Resume() {
                                 fontWeight: 'bold',
                                 fill: theme.colors.shape
 
-
                             }
                         }}
                         labelRadius={50}
