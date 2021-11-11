@@ -4,13 +4,17 @@ import { VictoryPie } from 'victory-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
 import { HistoryCard } from '../../components/HistoryCard';
-
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import {
     Container,
     Header,
     Title,
     Content,
-    ChartContainer
+    ChartContainer,
+    MonthSelect,
+    MonthSelectButton,
+    MonthSelectIcon,
+    Month,
 } from './styles';
 import { categories } from '../../utils/categories';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -102,7 +106,26 @@ export function Resume() {
                 <Title>Resumo por Categoria</Title>
             </Header>
 
-            <Content >
+            <Content //PARA O LAYOUT CHEGAR TODO COMPLETO NA SCROLL VIEW
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingHorizontal: 24,
+                    paddingBottom: useBottomTabBarHeight(),
+                }}
+            >
+
+                <MonthSelect>
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-left" />
+                    </MonthSelectButton>
+
+                    <Month>Maio</Month>
+
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-right" />
+                    </MonthSelectButton>
+                </MonthSelect>
+
                 <ChartContainer>
                     <VictoryPie
                         data={totalByCategories}
@@ -132,7 +155,7 @@ export function Resume() {
                 }
             </Content>
 
-        </Container>
+        </Container >
 
     )
 }
