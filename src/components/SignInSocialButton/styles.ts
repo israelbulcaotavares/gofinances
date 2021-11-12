@@ -3,6 +3,7 @@ import  { RectButton} from 'react-native-gesture-handler';
 import { RFValue } from "react-native-responsive-fontsize";
 
 
+
 export const Button = styled(RectButton)`
     height: ${RFValue(56)}px;
 
