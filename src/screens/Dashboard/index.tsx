@@ -3,10 +3,10 @@ import { useEffect, useState,useCallback } from 'react';
 import React from 'react'; 
 import { ActivityIndicator } from 'react-native';
 
-import { useFocusEffect} from '@react-navigation/native';
-
+import { useFocusEffect} from '@react-navigation/native'; 
 import { useTheme } from 'styled-components';
-  
+import { useAuth } from '../../hooks/auth';
+
 import { HighlightCard } from '../../components/HighlightCard';
 import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
  import { 
@@ -27,6 +27,8 @@ import { TransactionCard, TransactionCardProps } from '../../components/Transact
   LoadContainer
   
 } from './styles';
+
+
  
 
 export interface DataListProps extends TransactionCardProps {
@@ -52,6 +54,8 @@ export function Dashboard(){
    const [highlightData, setHighlightData ] = useState<HightlightData>({} as HightlightData);
  
    const theme = useTheme();
+   const { signOut, user } = useAuth();
+
 
    function getLastTransactionDate(
     collection: DataListProps[], 
@@ -178,14 +182,14 @@ export function Dashboard(){
          <UserWrapper>
          <UserInfo>
            <Photo
-              source={{uri:  'https://github.com/israelbulcaotavares.png'}}
+              source={{uri: user.photo}}
            />
             <User>
               <UserGreeting>Olá, </UserGreeting>
-              <UserName>Israel</UserName>
+              <UserName>{user.name}</UserName>
             </User> 
          </UserInfo>
-         <LogoutButton onPress={() => {}}>
+         <LogoutButton onPress={signOut}>
          <Icon name="power" />
          </LogoutButton>
          </UserWrapper> 
