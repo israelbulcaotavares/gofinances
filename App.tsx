@@ -25,7 +25,8 @@ import { AppRoutes } from './src/routes/app.routes';
 
 import { SignIn } from './src/screens/SignSign';
 
-import { AuthContext } from './src/AuthContext'
+import { AuthProvider } from './src/hooks/auth'
+import { Dashboard } from './src/screens/Dashboard';
 
 
 export default function App() {
@@ -44,9 +45,9 @@ export default function App() {
       <NavigationContainer>
         <StatusBar barStyle="light-content" />
 
-        <AuthContext.Provider value={[]}>
+        <AuthProvider>
           <SignIn />
-        </AuthContext.Provider>
+        </AuthProvider>
 
       </NavigationContainer>
     </ThemeProvider>
